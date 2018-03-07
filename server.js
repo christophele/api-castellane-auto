@@ -1,20 +1,17 @@
-var express = require("express");
 var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'filipauto'
-});
 
-var app = express();
+const config = require('./db/config');
+
+var connection = mysql.createConnection({
+    host: config.host,
+    user: config.user,
+    password: config.password,
+    database: config.database
+});
 
 connection.connect(function(err) {
-    if (!err) {
-        console.log("Database is connected ... \n\n");
-    } else {
-        console.log("Error connecting database ... \n\n");
-    }
+    if (err) throw err;
+    console.log("Connected!");
 });
 
-app.listen(3000);
+module.exports =  config;
