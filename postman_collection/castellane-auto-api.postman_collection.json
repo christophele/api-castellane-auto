@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "6290dcac-d99f-42c7-9393-0ddbb7e3443f",
+		"name": "castellane-auto-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3001/vehicules",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"5ad200f2c7122adc2f286ba4\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/vehicules/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"vehicules",
+						""
+					]
+				},
+				"description": "Get vehicules"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/vehicules/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"5ad200f2c7122adc2f286ba4\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/vehicules/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"vehicules",
+						"1"
+					]
+				},
+				"description": "Get vehicule by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/vehicules",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nuimmatriculation\": \"AE-3E1-B1\",\n\t\"date_achat\": \"2011-08-13T23:00:00.000Z\",\n\t\"nb_km_initial\" : 1023\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/vehicules/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"vehicules",
+						""
+					]
+				},
+				"description": "POST vehicule"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/vehicules/",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nuimmatriculation\": \"AE-3E1-B1\",\n\t\"date_achat\": \"2011-08-13T23:00:00.000Z\",\n\t\"nb_km_initial\" : 1023\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/vehicules/7",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"vehicules",
+						"7"
+					]
+				},
+				"description": "DELETE vehicule"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/modeles/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nuimmatriculation\": \"AE-3E1-B1\",\n\t\"date_achat\": \"2011-08-13T23:00:00.000Z\",\n\t\"nb_km_initial\" : 1023\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/modeles/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"modeles",
+						""
+					]
+				},
+				"description": "GET modeles"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/modeles/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nuimmatriculation\": \"AE-3E1-B1\",\n\t\"date_achat\": \"2011-08-13T23:00:00.000Z\",\n\t\"nb_km_initial\" : 1023\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/modeles/26567214",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"modeles",
+						"26567214"
+					]
+				},
+				"description": "GET modele by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/modeles/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marque\": \"Kawasaki\",\n    \"nom\": \"Ninja 400\",\n    \"annee\": \"2018-01-10T22:00:00.000Z\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/modeles/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"modeles",
+						""
+					]
+				},
+				"description": "POST modele"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/modeles/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marque\": \"Kawasaki\",\n    \"nom\": \"Ninja 400\",\n    \"annee\": \"2018-01-10T22:00:00.000Z\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/modeles/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"modeles",
+						"1"
+					]
+				},
+				"description": "DELETE modele by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/lecons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/lecons",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"lecons"
+					]
+				},
+				"description": "GET lecons"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/lecons/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/lecons/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"lecons",
+						"1"
+					]
+				},
+				"description": "GET lecon by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/lecons",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/lecons",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"lecons"
+					]
+				},
+				"description": "POST lecon"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/lecons/3",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/lecons/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"lecons",
+						"3"
+					]
+				},
+				"description": "DELETE lecon by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/clients/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"clients",
+						""
+					]
+				},
+				"description": "GET clients"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/clients/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"clients",
+						"1"
+					]
+				},
+				"description": "GET client by id"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/moniteurs/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"moniteurs",
+						""
+					]
+				},
+				"description": "GET moniteurs"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date_lecon\" : \"2018-01-24\",\n\t\"heure_lecon\" : \"20:00:00\",\n\t\"tarif_heure\" : 59.5\n}"
+				},
+				"url": {
+					"raw": "localhost:3001/moniteurs/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"moniteurs",
+						"1"
+					]
+				},
+				"description": "GET moniteur by id"
+			},
+			"response": []
+		}
+	]
+}

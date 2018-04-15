@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
+// middleware body-parser, gère req.body
+app.use(bodyParser.json());
 
 // import routes
 const moniteurRoutes = require('./api/routes/moniteur');
@@ -14,3 +18,5 @@ app.use('/vehicules', vehiculeRoutes);
 app.use('/modeles', modeleRoutes);
 app.use('/clients', clientRoutes);
 app.use('/lecons', leconRoutes);
+
+module.exports = app;
