@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:leconId', (req, res, next) => {
 	const leconId = req.params.leconId;
-	connection.query('SELECT * FROM lecon WHERE nulecon = ' + leconId, (err, data) => {
+	connection.query('SELECT * FROM lecon WHERE numlecon = ' + leconId, (err, data) => {
 		if (err) {
 			console.log(err);
 			res.status(500).json({err});
@@ -25,13 +25,13 @@ router.get('/:leconId', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const lecon = {
-        date_lecon : req.body.date_lecon,
-        heure_lecon : req.body.heure_lecon,
-        tarif_heure : req.body.tarif_heure
+        datelecon : req.body.datelecon,
+        heurelecon : req.body.heurelecon,
+        tarifheure : req.body.tarifheure
     };
 
-    if (lecon.date_lecon && lecon.heure_lecon && lecon.tarif_heure) {
-        connection.query('INSERT INTO lecon (date_lecon, heure_lecon, tarif_heure) values (' + "'" + lecon.date_lecon + "'" + "," + "'" + lecon.heure_lecon + "'" + "," + "'" + lecon.tarif_heure + "'" + ")", (err, data) => {
+    if (lecon.datelecon && lecon.heurelecon && lecon.tarifheure) {
+        connection.query('INSERT INTO lecon (datelecon, heurelecon, tarifheure) values (' + "'" + lecon.datelecon + "'" + "," + "'" + lecon.heurelecon + "'" + "," + "'" + lecon.tarifheure + "'" + ")", (err, data) => {
             if (err) {
 				console.log(err);
 				res.status(500).json({err});
@@ -51,7 +51,7 @@ router.post('/', (req, res, next) => {
 router.delete('/:leconId', (req, res, next) => {
 	const leconId = req.params.leconId;
 	if (leconId) {
-		connection.query('DELETE FROM lecon WHERE nulecon = ' + leconId, (err, data) => {
+		connection.query('DELETE FROM lecon WHERE numlecon = ' + leconId, (err, data) => {
 			if (err) {
 				console.log(err);
 				res.status(500).json({err});

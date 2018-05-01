@@ -1,20 +1,31 @@
 {
-  "name": "api-castellane-auto",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3",
-    "mysql": "^2.15.0",
-    "nll": "^1.0.2",
-    "nodemon": "^1.17.3",
-    "sha1": "^1.1.1"
-  }
+    "name": "api-castellane-auto",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "client": "cd frontend && yarn start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "cors": "^2.8.4",
+        "express": "^4.16.3",
+        "mysql": "^2.15.0",
+        "nll": "^1.0.2",
+        "nodemon": "^1.17.3",
+        "react-bootstrap-table": "^4.3.1",
+        "sha1": "^1.1.1"
+    },
+    "devDependencies": {
+        "concurrently": "^3.5.1"
+    },
+    "keywords": [
+        "node",
+        "express",
+        "create-react-app"
+    ]
 }

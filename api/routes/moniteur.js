@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:idMoniteur', (req, res, next) => {
 	const idMoniteur = req.params.idMoniteur;
-	connection.query('SELECT * FROM moniteur WHERE numoniteur = ' + idMoniteur, (err, data) => {
+	connection.query('SELECT * FROM moniteur WHERE nummoniteur = ' + idMoniteur, (err, data) => {
 		if (err) {
 			console.log(err);
 			res.status(500).json({err});
@@ -25,10 +25,10 @@ router.get('/:idMoniteur', (req, res, next) => {
 });
 
 router.post('/connexion', (req, res, next) => { // CONNEXION
-    const email = req.body.email;
-    const mdp = sha1(req.body.mdp);
-    if (email && mdp) {
-        connection.query('SELECT * FROM moniteur WHERE email = ' + "'" + email + "'" + ' and mdp = ' + "'" + mdp + "'", (err, data) => {
+    const mailmoniteur = req.body.mailmoniteur;
+    const mdpmoniteur = sha1(req.body.mdpmoniteur);
+    if (mailmoniteur && mdpmoniteur) {
+        connection.query('SELECT * FROM moniteur WHERE mailmoniteur = ' + "'" + mailmoniteur + "'" + ' and mdpmoniteur = ' + "'" + mdpmoniteur + "'", (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).json({code: "no", message: "Erreur lors de la connexion", err});

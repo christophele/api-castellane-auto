@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:idVehicule', (req, res, next) => {
 	const idVehicule = req.params.idVehicule;
-	connection.query('SELECT * FROM vehicule WHERE nuvehicule = ' + idVehicule, (err, data) => {
+	connection.query('SELECT * FROM vehicule WHERE numvehicule = ' + idVehicule, (err, data) => {
 		if (err) {
 			console.log(err);
 			res.status(500).json({err});
@@ -25,13 +25,15 @@ router.get('/:idVehicule', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const vehicule = {
-        nuimmatriculation : req.body.nuimmatriculation,
+		numvehicule : req.body.numvehicule,
+		marque : req.body.marque,
+		immatriculation : req.body.immatriculation,
+		model : req.body.model,
         date_achat : req.body.date_achat,
-        nb_km_initial : req.body.nb_km_initial
     };
 
-    if (vehicule.nuimmatriculation && vehicule.date_achat && vehicule.nb_km_initial) {
-        connection.query('INSERT INTO vehicule (nuimmatriculation, date_achat, nb_km_initial) values (' + "'" + vehicule.nuimmatriculation + "'" + "," + "'" + vehicule.date_achat + "'" + "," + "'" + vehicule.nb_km_initial + "'" + ")", (err, data) => {
+    if (vehicule.numvehicule && vehicule.marque && vehicule.immatriculation && vehicule.model && vehicule.date_achat) {
+        connection.query('INSERT INTO vehicule (numvehicule, marque, immatriculation, model, date_achat) values (' + "'" + vehicule.numvehicule + "'" + "," + "'" + vehicule.marque + "'" + "," + "'" + vehicule.immatriculation + "'" + "," + "'" + vehicule.model + "'" + "," + "'" + vehicule.date_achat + "'" + ")", (err, data) => {
             if (err) {
 				console.log(err);
 				res.status(500).json({err});
@@ -48,10 +50,10 @@ router.post('/', (req, res, next) => {
 	}
 });
 
-router.delete('/:idVehicule', (req, res, next) => {
-	const idVehicule = req.params.idVehicule;
+router.delete('/:vehiculeId', (req, res, next) => {
+	const idVehicule = req.params.vehiculeId;
 	if (idVehicule) {
-		connection.query('DELETE FROM vehicule WHERE nuvehicule = ' + idVehicule, (err, data) => {
+		connection.query('DELETE FROM vehicule WHERE numvehicule = ' + idVehicule, (err, data) => {
 			if (err) {
 				console.log(err);
 				res.status(500).json({err});
