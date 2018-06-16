@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/connexion', (req, res, next) => { // CONNEXION
     const mailclient = req.body.mailclient;
-    const mdpclientclient = sha1(req.body.mdpclientclient);
+    const mdpclient = req.body.mdpclient;
     if (mailclient && mdpclient) {
         connection.query('SELECT * FROM client WHERE mailclient = ' + "'" + mailclient + "'" + ' and mdpclient = ' + "'" + mdpclient + "'", (err, data) => {
             if (err) {
@@ -41,7 +41,7 @@ router.post('/inscription', (req, res, next) => { // INSCRIPTION
         datedenaissanceclient: req.body.datedenaissanceclient,
         telephoneclient: req.body.telephoneclient,
         mailclient: req.body.mailclient,
-        mdpclient: sha1(req.body.mdpclient)
+        mdpclient: req.body.mdpclient
     };
 
     if (client.nomclient && client.prenomclient && client.adresseclient && client.datedenaissanceclient && client.telephoneclient && client.mailclient && client.mdpclient) {
@@ -74,14 +74,15 @@ router.post('/', (req, res, next) => {
         telephoneclient: req.body.telephoneclient,
         mailclient: req.body.mailclient,
         dateinscriptionclient: req.body.dateinscriptionclient,
+        modefacturation: req.body.modefacturation,
         typeclient: req.body.typeclient,
         mdpclient : req.body.mdpclient
     };
 
     console.log(client);
 
-    if (client.nomclient && client.prenomclient && client.adresseclient && client.datedenaissanceclient && client.telephoneclient && client.mailclient && client.dateinscriptionclient && client.typeclient && client.mdpclient) {
-        connection.query('INSERT INTO client (nomclient, prenomclient, adresseclient, datedenaissanceclient, telephoneclient, mailclient, dateinscriptionclient, typeclient, mdpclient) values (' + "'" + client.nomclient + "'" + "," + "'" + client.prenomclient + "'" + "," + "'" + client.adresseclient + "'" + "," + "'" + client.datedenaissanceclient + "'" + "," + "'" + client.telephoneclient + "'" + "," + "'" + client.mailclient + "'" + "," + "'" + client.dateinscriptionclient + "'" + "," + "'" + client.typeclient + "'" + "," + "'" + client.mdpclient + "'" + ")", (err, data) => {
+    if (client.nomclient && client.prenomclient && client.adresseclient && client.datedenaissanceclient && client.telephoneclient && client.mailclient && client.dateinscriptionclient && client.modefacturation && client.typeclient && client.mdpclient) {
+        connection.query('INSERT INTO client (nomclient, prenomclient, adresseclient, datedenaissanceclient, telephoneclient, mailclient, dateinscriptionclient, modefacturation, typeclient, mdpclient) values (' + "'" + client.nomclient + "'" + "," + "'" + client.prenomclient + "'" + "," + "'" + client.adresseclient + "'" + "," + "'" + client.datedenaissanceclient + "'" + "," + "'" + client.telephoneclient + "'" + "," + "'" + client.mailclient + "'" + "," + "'" + client.dateinscriptionclient + "'" + "," + "'" + client.modefacturation + "'" + "," + "'" + client.typeclient + "'" + "," + "'" + client.mdpclient + "'" + ")", (err, data) => {
             if (err) {
 				console.log(err);
 				res.status(500).json({err});
@@ -112,6 +113,8 @@ router.get('/:clientId', (req, res, next) => {
 
 router.delete('/:clientId', (req, res, next) => {
     const idClient = req.params.clientId;
+    console.log(idClient);
+
     if (idClient) {
             connection.query('DELETE FROM client WHERE numclient = ' + idClient, (err, data) => {
             if (err) {

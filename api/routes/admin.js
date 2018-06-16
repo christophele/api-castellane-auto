@@ -4,7 +4,7 @@ const connection = require('../../sql/connection');
 const sha1 = require('sha1');
 
 router.get('/', (req, res, next) => {
-    connection.query('SELECT * FROM moniteur', (err, data) => {
+    connection.query('SELECT * FROM admin', (err, data) => {
         if (err) {
             console.log(err);
             res.status(500).json({err});
@@ -13,9 +13,9 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/:idMoniteur', (req, res, next) => {
-	const idMoniteur = req.params.idMoniteur;
-	connection.query('SELECT * FROM moniteur WHERE nummoniteur = ' + idMoniteur, (err, data) => {
+router.get('/:idAdmin', (req, res, next) => {
+	const idAdmin = req.params.idAdmin;
+	connection.query('SELECT * FROM admin WHERE numadmin = ' + idAdmin, (err, data) => {
 		if (err) {
 			console.log(err);
 			res.status(500).json({err});
@@ -25,11 +25,11 @@ router.get('/:idMoniteur', (req, res, next) => {
 });
 
 router.post('/connexion', (req, res, next) => { // CONNEXION
-    const mailmoniteur = req.body.mailmoniteur;
-    const mdpmoniteur = req.body.mdpmoniteur;
+    const mailadmin = req.body.mailadmin;
+    const mdpadmin = req.body.mdpadmin;
 
-    if (mailmoniteur && mdpmoniteur) {
-        connection.query('SELECT * FROM moniteur WHERE mailmoniteur = ' + "'" + mailmoniteur + "'" + ' and mdpmoniteur = ' + "'" + mdpmoniteur + "'", (err, data) => {
+    if (mailadmin && mdpadmin) {
+        connection.query('SELECT * FROM admin WHERE mailadmin = ' + "'" + mailadmin + "'" + ' and mdpadmin = ' + "'" + mdpadmin + "'", (err, data) => {
             if (err) {
                 console.log(err);
                 res.status(500).json({code: "no", message: "Erreur lors de la connexion", err});

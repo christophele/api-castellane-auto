@@ -50,16 +50,16 @@ router.post('/', (req, res, next) => {
 	}
 });
 
-router.delete('/:vehiculeId', (req, res, next) => {
-	const idVehicule = req.params.vehiculeId;
-	if (idVehicule) {
-		connection.query('DELETE FROM vehicule WHERE numvehicule = ' + idVehicule, (err, data) => {
+router.delete('/:demandeleconId', (req, res, next) => {
+	const demandeleconId = req.params.demandeleconId;
+	if (demandeleconId) {
+		connection.query('DELETE FROM demandelecon WHERE id_demande = ' + demandeleconId, (err, data) => {
 			if (err) {
 				console.log(err);
 				res.status(500).json({err});
 			}
 			res.status(200).json({
-				message: "Vehicule avec l'id " + idVehicule + " supprimé.",
+				message: "Demande de leçon avec l'id " + demandeleconId + " supprimé.",
 				data
 			});
 		});

@@ -27,11 +27,12 @@ router.post('/', (req, res, next) => {
     const lecon = {
         datelecon : req.body.datelecon,
         heurelecon : req.body.heurelecon,
-        tarifheure : req.body.tarifheure
+        tarifheure : req.body.tarifheure,
+		id_demande : req.body.id_demande
     };
 
-    if (lecon.datelecon && lecon.heurelecon && lecon.tarifheure) {
-        connection.query('INSERT INTO lecon (datelecon, heurelecon, tarifheure) values (' + "'" + lecon.datelecon + "'" + "," + "'" + lecon.heurelecon + "'" + "," + "'" + lecon.tarifheure + "'" + ")", (err, data) => {
+    if (lecon.datelecon && lecon.heurelecon && lecon.tarifheure && lecon.id_demande) {
+        connection.query('INSERT INTO lecon (datelecon, heurelecon, tarifheure, id_demande) values (' + "'" + lecon.datelecon + "'" + "," + "'" + lecon.heurelecon + "'" + "," + "'" + lecon.tarifheure + "'" + "," + "'" + lecon.id_demande + "'" + ")", (err, data) => {
             if (err) {
 				console.log(err);
 				res.status(500).json({err});
